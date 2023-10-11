@@ -27,7 +27,7 @@ export function Login( { setIsOpen }){
                 window.localStorage.setItem("loggedIn", true);
                 await getData();
                 await setIsOpen(false)
-                navigate('/loginSuccess/');
+                navigate('/search/');
             }
         });
         try {
