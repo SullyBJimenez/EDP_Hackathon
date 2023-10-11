@@ -11,6 +11,21 @@ export function Login(){
             email,
             password,
         };
+        const url = '';
+
+        const response = await fetch(`${url}profile-login`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(raw),
+        })
+        .then((res) => res.json())
+        .then(async (data) => {
+            if(data.status === "ok") {
+                window.localStorage.setItem("token", data.data);
+                
+            }
+        })
     }
     return (
         <>
