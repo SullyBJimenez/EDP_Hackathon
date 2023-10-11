@@ -65,7 +65,7 @@ const markData = {
 // TODO tie salaries with job role, +-5%
 
 function generateSalary(jobRole) {
-    const percentage = faker.number.float({ min: 0.95, max: 1.05, precision: 0.01 })
+    const percentage = faker.number.float({ min: 0.80, max: 1.2, precision: 0.01 });
 
     if (jobRole === 'HR') {
         return 80000 * percentage;
@@ -108,14 +108,14 @@ function createRandomUser() {
     };
 }
 
-const peopleCollection = [ceoData, justinData, markData]
+const peopleCollection = [ceoData, justinData, markData];
 
 for (let i = 0; i < 997; i++) {
     let employee = createRandomUser();
     peopleCollection.push(employee)
-}
+};
 
-const jsonData = JSON.stringify(peopleCollection)
+const jsonData = JSON.stringify(peopleCollection);
 
 fs.writeFile("data.json", jsonData, function (err) {
     if (err) {
