@@ -62,6 +62,25 @@ const markData = {
     reports_to: '1', // might remove
 };
 
+// TODO tie salaries with job role, +-5%
+
+function generateSalary(jobRole) {
+    const percentage = faker.number.float({ min: 0.95, max: 1.05, precision: 0.01 })
+
+    if (jobRole === 'HR') {
+        return 80000 * percentage;
+    }
+    else if (jobRole === 'Tech') {
+        return 200000 * percentage;
+    }
+    else if (jobRole === 'Sales') {
+        return 100000 * percentage;
+    }
+    else if (jobRole === 'Customer Service') {
+        return 50000 * percentage;
+    }
+};
+
 function createRandomUser() {
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
@@ -71,6 +90,8 @@ function createRandomUser() {
     ]);
     const phoneNumber = faker.phone.number();
     const password = faker.internet.password({ length: 20 });
+    const jobRole = faker.helpers.arrayElement(['HR', 'Tech', 'Sales', 'Customer Service']);
+    const salary = generateSalary(jobRole);
 
     return {
         _id: faker.string.uuid(),
@@ -80,9 +101,9 @@ function createRandomUser() {
         phoneNumber,
         firstName,
         lastName,
-        jobRole: faker.helpers.arrayElement(['HR', 'Tech', 'Sales', 'Customer Service']),
+        jobRole,
         location: faker.helpers.arrayElement(['Hartford', 'St. Paul', 'West Bridgewater', 'New York']),
-        salary: faker.number.int({ min: 50000, max: 200000 }),
+        salary,
         reports_to: faker.helpers.arrayElement(['2', '3'])
     };
 }
