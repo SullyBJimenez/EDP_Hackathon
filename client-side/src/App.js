@@ -5,10 +5,13 @@ import { Login } from './components/Login';
 import { Employee } from './components/Employee'
 import { Search } from './components/Search';
 import { CurrentUser } from './components/CurrentUser';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
+    
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path="/" exact element={<Home/>}/>
         <Route path="/home/" exact element={<Home/>}/>
