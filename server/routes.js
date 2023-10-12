@@ -10,18 +10,20 @@ app.post('/employee-login', (req,res) => {
     })
 })
 
-app.post('/employeedetails', (req, res) => {
+app.post('/employeedetails', async(req, res) => {
     const { token } = req.body;
     try {
         const user = jwt.verify(token);
         console.log(user);
         const userEmail = user.email;
         employeeDetails(userEmail)
-}
+    }
+     catch (error) {}
 })
 
 app.get('/searchbyname', (req,res) =>{
     searchByFirstName(function(data){
         res.send(data)
     })
+    
 })
