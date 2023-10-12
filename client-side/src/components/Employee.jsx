@@ -14,6 +14,7 @@ export function Employee() {
     console.log(id);
 
     const [employee, setEmployee] = useState([]);
+    const [canSeeSalary, setCanSeeSalary] = useState(false);
 
     useEffect(() => {
         async function getEmployeeData() {
@@ -21,9 +22,12 @@ export function Employee() {
             const data = await fetch(`${url}employee/${id}`);
             const employeeData = await data.json();
             setEmployee(employeeData);
-            // console.log(data.json());
-            // console.log(employee);
-        }
+        };
+        if (localStorage.getItem("jobRole") === "HR" ||
+            employee.reports_to === localStorage.getItem("_id")) {
+            setCanSeeSalary(true);
+        };
+
         getEmployeeData();
     }, [id]);
 
@@ -34,7 +38,9 @@ export function Employee() {
             <PhoneNumber phoneNumber={employee.phoneNumber} />
             <JobRole jobRole={employee.jobRole} />
             <Location location={employee.location} />
-            <Salary salary={employee.salary} />
+            {canSeeSalary
+                && <Salary salary={employee.salary} />
+            }
             <DirectReports />
             {/* TODO ^^ */}
         </>
