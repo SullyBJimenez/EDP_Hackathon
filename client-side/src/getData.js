@@ -1,8 +1,8 @@
 
 export const getData = async () => {
-    const url = ''
+    const url = 'http://localhost:2020/'
 
-    await fetch(url + "employee-details", {
+    await fetch(url + "employeedetails", {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },

@@ -16,8 +16,8 @@ export const Search = () => {
         };
         const url = '';
 
-        const response = await fetch(`${url}search-by-name`, {
-            method: "POST",
+        const response = await fetch(`${url}searchbyname`, {
+            method: "GET",
             mode: "cors",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(raw),
@@ -59,7 +59,7 @@ export const Search = () => {
         </div>
         <div>
             Results
-            
+
         </div>
         </>
     )

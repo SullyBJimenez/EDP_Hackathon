@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getData } from "../getData.js"
 
-export function Login( { setIsOpen }){
+export function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -12,9 +12,9 @@ export function Login( { setIsOpen }){
             email,
             password,
         };
-        const url = '';
+        const url = 'http://localhost:2020/';
 
-        const response = await fetch(`${url}profile-login`, {
+        const response = await fetch(`${url}employee-login`, {
             method: 'POST',
             mode: 'cors',
             headers: {"Content-Type": "application/json"},
@@ -26,7 +26,6 @@ export function Login( { setIsOpen }){
                 window.localStorage.setItem("token", data.data);
                 window.localStorage.setItem("loggedIn", true);
                 await getData();
-                await setIsOpen(false)
                 navigate('/search/');
             }
         });
@@ -45,7 +44,6 @@ export function Login( { setIsOpen }){
         <>
             <div className="login-div">
                 <div className="login-style">
-                    <div className="close-div" onClick={() => setIsOpen(false)}>x</div>
                     <h1 className="login-heading">Email Address</h1>
                     <br/>
                     <input
