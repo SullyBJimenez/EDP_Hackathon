@@ -26,7 +26,7 @@ export function Login() {
             window.localStorage.setItem("reports_to", data.reports_to);
             window.localStorage.setItem("_id", data._id);
             window.localStorage.setItem("loggedIn", true);
-            navigate('/employee/')
+            navigate('/currentuser/')
       } )
       .catch((error) => console.error(error));
   };

@@ -1,8 +1,10 @@
 
-export function Name(){
+export function Name(props){
+    const name = localStorage.getItem("Name")
     return (
         <>
-            <h3>Employee Name</h3>
+            <h3>Name</h3>
+            <p>{props.name}</p>
         </>
     )
 }

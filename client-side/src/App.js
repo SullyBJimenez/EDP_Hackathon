@@ -4,6 +4,7 @@ import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { Employee } from './components/Employee'
 import { Search } from './components/Search';
+import { CurrentUser } from './components/CurrentUser';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login/" exact element={<Login />}/>
         <Route path="/employee/" exact element={<Employee/>}/>
         <Route path="/search/" exact element={<Search/>}/>
+        <Route path="/currentuser/" exact element={<CurrentUser/>}/>
         <Route/>
       </Routes>
     </BrowserRouter>
