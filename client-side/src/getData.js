@@ -10,7 +10,8 @@ export const getData = async () => {
     })
     .then((res) => res.json())
     .then((data) => {
-        window.localStorage.setItem("email", data.data.email);
-        window.localStorage.setItem("name", data.data.name);
-    });
+        window.localStorage.setItem("email", data.email);
+        window.localStorage.setItem("name", data.firstName);
+    })
+    .then();
 };

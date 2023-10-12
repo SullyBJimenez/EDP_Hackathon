@@ -14,7 +14,7 @@ export const Search = () => {
             firstName,
             lastName,
         };
-        const url = '';
+        const url = 'http://localhost:2020/';
 
         const response = await fetch(`${url}searchbyname`, {
             method: "GET",
@@ -26,7 +26,7 @@ export const Search = () => {
         .then(async (data) => {
             if(data.status === "ok") {
                 window.localStorage.setItem("token", data.data);
-                await getData();
+                //await getData(); this is returning void
 
                 //navigate(`/employee/${firstName}`);
             }

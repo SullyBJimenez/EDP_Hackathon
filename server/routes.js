@@ -5,7 +5,9 @@ import jwt from "jsonwebtoken";
 const app = express();
 
 app.post('/employee-login', (req,res) => {
-    login(function(data){
+    let data = req.body;
+    console.log("data from inside employee-login post request: ", data)
+    login((data) => {
         res.send(data)
     })
 })
@@ -22,6 +24,7 @@ app.post('/employeedetails', async(req, res) => {
 })
 
 app.get('/searchbyname', (req,res) =>{
+    const data = req.body;
     searchByFirstName(function(data){
         res.send(data)
     })

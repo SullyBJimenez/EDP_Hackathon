@@ -25,7 +25,7 @@ export function Login(){
             if(data.status === "ok") {
                 window.localStorage.setItem("token", data.data);
                 window.localStorage.setItem("loggedIn", true);
-                await getData();
+                await getData();// is this needed? its returning void
                 navigate('/search/');
             }
         });
