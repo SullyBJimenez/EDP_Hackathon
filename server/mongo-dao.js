@@ -33,7 +33,7 @@ export const login = async () => {
 export const employeeDetails = async () => {
     const email = req.body;
     let db = await dbConnect();
-    let dataPromise = db.collection("Employee").findOne({'email': email})
+    let dataPromise = await db.getCollection("Employee").findOne({'email': email})
     return dataPromise 
 }
 
