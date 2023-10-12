@@ -1,66 +1,51 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { getData } from "../getData";
+import { SearchResults } from "./SearchResults";
 
 export const Search = () => {
 
-    const [searchParameters, setSearchParameters] = useState("");
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("");
+    const [query, setQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit = async () => {
-        const raw = {
-            firstName,
-            lastName,
-        };
-        const url = 'http://localhost:2020/';
-
-        const response = await fetch(`${url}searchbyname`, {
-            method: "GET",
-            mode: "cors",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(raw),
+        console.log("Clicked search");
+        const url = "http://localhost:2020/";
+        const data = fetch(`${url}search`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query }),
         })
-        .then((res) =>res.json())
-        .then(async (data) => {
-            if(data.status === "ok") {
-                window.localStorage.setItem("token", data.data);
-                //await getData(); this is returning void
-
-                //navigate(`/employee/${firstName}`);
-            }
-        });
-        try {
-            const result = await response.json();
-            console.log("Result: ", result);
-            if(result.status === 401){
-                return window.alert(result.error);
-            }
-        } catch (error) {
-            console.error("Error: ", error);
-        }
+            .then((response) => {
+                if (!response.ok) throw new Error("Invalid search response");
+                return response.json();
+            })
+            .then((data) => {
+                setSearchResults(data);
+            })
+            .catch((error) => console.error(error));
     };
 
     return (
         <>
-        <div>
-            <input
-                type="search"
-                placeholder="Search by employee name"
-                value={searchParameters}
-                onChange={(e) => setSearchParameters(e.currentTarget.value)}
-            />
-            <button
-                type="submit"
-                className="search-button"
-                onClick={handleSubmit}
-            >Submit</button>
-        </div>
-        <div>
-            Results
-
-        </div>
+            <div>
+                <input
+                    type="search"
+                    placeholder="Search by employee name"
+                    value={query}
+                    onChange={(e) => setQuery(e.currentTarget.value)}
+                />
+                <button
+                    type="submit"
+                    className="search-button"
+                    onClick={handleSubmit}
+                >Submit</button>
+            </div>
+            <div>
+                Results
+                <SearchResults searchResults={searchResults} />
+            </div>
         </>
-    )
-}
+    );
+};

@@ -13,7 +13,7 @@ function App() {
         <Route path="/" exact element={<Home/>}/>
         <Route path="/home/" exact element={<Home/>}/>
         <Route path="/login/" exact element={<Login />}/>
-        <Route path="/employee/" exact element={<Employee/>}/>
+        <Route path="/employee/:id" exact element={<Employee/>}/>
         <Route path="/search/" exact element={<Search/>}/>
         <Route path="/currentuser/" exact element={<CurrentUser/>}/>
         <Route/>
