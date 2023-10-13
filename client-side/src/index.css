@@ -20,23 +20,44 @@ ul {
   background-color: #3a3737;
   height: 30px;
   text-align: center;
+  z-index: 0;
 }
 
 li {
   float: left;
 }
 
+.login-div {
+margin: 40px;
+border: 1px solid red;
+padding: 10px;
+box-shadow: 5px 5px;
+}
+
+.searchInput {
+  width: auto;
+  height: auto;
+}
+
+.navbarDiv {
+  z-index: 1;
+  position: relative;
+  top: 25px;
+  width: 400px;
+}
 .search_result_div {
   margin: auto;
   width: 50%;
-  border: 3px solid red;
+  border: 1px solid red;
   padding: 10px;
   text-align: center;
+  box-shadow: 5px 5px;
 }
 
 .employeeDiv {
   margin: 40px;
-  border: 3px solid red;
+  border: 1px solid red;
+  box-shadow: 5px 5px;
 }
 
 .employee_inner_div {

@@ -30,6 +30,7 @@ export const Search = () => {
             <div>
                 <input
                     type="search"
+                    className="searchInput"
                     placeholder="Search by employee name"
                     value={query}
                     onChange={(e) => setQuery(e.currentTarget.value)}

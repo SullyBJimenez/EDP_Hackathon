@@ -15,20 +15,23 @@ const linkStyle = {
 
 export const Navbar = () => {
   return (
-    <NavUnlisted>
-      <Link style={linkStyle} to="/currentuser">
-        My Profile
-      </Link>
+    <div>
+      <div className="navbarDiv">Product created by 404 Team Not Found</div>
+      <NavUnlisted>
+        <Link style={linkStyle} to="/currentuser">
+          My Profile
+        </Link>
 
-      <Link style={linkStyle} to="/search">
-        Search
-      </Link>
+        <Link style={linkStyle} to="/search">
+          Search
+        </Link>
 
-      <Link style={linkStyle} to="/model">
-        Model
-      </Link>
+        <Link style={linkStyle} to="/model">
+          Model
+        </Link>
 
-      <LogOut />
-    </NavUnlisted>
+        <LogOut />
+      </NavUnlisted>
+    </div>
   );
 };
