@@ -49,8 +49,8 @@ export function Employee() {
               <JobRole jobRole={employee.jobRole} />
               <Location location={employee.location} />
               {canSeeSalary && <Salary salary={employee.salary} />}
-              <DirectReports />
-              {/* TODO ^^ */}
+              {/* <DirectReports />
+              TODO ^^ */}
             </div>
           </div>
         </div>
