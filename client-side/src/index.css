@@ -28,12 +28,20 @@ li {
 }
 
 .login-div {
-margin: 40px;
+  padding: 10px;
+}
+.login-style {
+margin: auto;
 border: 1px solid red;
 padding: 10px;
 box-shadow: 5px 5px;
+border-radius: 25px;
+width: 600px;
 }
 
+.top_search_div {
+  padding: 10px;
+}
 .searchInput {
   width: auto;
   height: auto;
@@ -52,12 +60,14 @@ box-shadow: 5px 5px;
   padding: 10px;
   text-align: center;
   box-shadow: 5px 5px;
+  border-radius: 25px;
 }
 
 .employeeDiv {
   margin: 40px;
   border: 1px solid red;
   box-shadow: 5px 5px;
+  border-radius: 25px;
 }
 
 .employee_inner_div {

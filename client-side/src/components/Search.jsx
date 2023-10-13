@@ -26,7 +26,8 @@ export const Search = () => {
 
     return (
         <>
-        <div className="search_result_div">
+        <div className="top_search_div">
+            <div className="search_result_div">
             <div>
                 <input
                     type="search"
@@ -46,6 +47,8 @@ export const Search = () => {
                 <SearchResults searchResults={searchResults} />
             </div>
         </div>
+        </div>
+        
             
         </>
     );
