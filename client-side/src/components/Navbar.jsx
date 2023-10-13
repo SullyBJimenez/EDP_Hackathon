@@ -1,21 +1,34 @@
-import React from 'react';
-import {  Link } from "react-router-dom";
-import { LogOut } from './LogOut';
+import React from "react";
+import { Link } from "react-router-dom";
+import { LogOut } from "./LogOut";
+import styled from "styled-components";
 
-export const Navbar= () =>{
+const NavUnlisted = styled.ul`
+  text-decoration: none;
+`;
+
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none",
+  color: "white",
+};
+
+export const Navbar = () => {
   return (
-  <div>
-    <li>
-      <Link to="/currentuser">My Profile</Link>
-    </li>
-    <li>
-      <Link to="/search">Search</Link>
-    </li>
-    <li>
-      <Link to="/model">Model</Link>
-    </li>
-    <LogOut/>
-    
-  </div>
+    <NavUnlisted>
+      <Link style={linkStyle} to="/currentuser">
+        My Profile
+      </Link>
+
+      <Link style={linkStyle} to="/search">
+        Search
+      </Link>
+
+      <Link style={linkStyle} to="/model">
+        Model
+      </Link>
+
+      <LogOut />
+    </NavUnlisted>
   );
-}
+};

@@ -6,7 +6,7 @@ export const LogOut = () => {
 
     return (
         <>
-            <button onClick={() => {
+            <button className="logout_button" onClick={() => {
                 localStorage.clear() 
                 navigate('/login/')}}>Log Out</button>
         </>

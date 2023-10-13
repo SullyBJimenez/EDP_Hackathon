@@ -7,16 +7,23 @@ import { PhoneNumber } from "./PhoneNumber";
 import { Salary } from "./Salary";
 
 export function CurrentUser() {
-    return (
-        <>
+  return (
+    <>
+      <div>
+        <h2>Your details</h2>
+        <div className="employeeDiv">
+          <div className="employee_inner_div">
             <Avatar avatar={localStorage.getItem("avatar")} />
-            <Name name={localStorage.getItem("name")}/>
+            <Name name={localStorage.getItem("name")} />
             <PhoneNumber phoneNumber={localStorage.getItem("phoneNumber")} />
             <JobRole jobRole={localStorage.getItem("jobRole")} />
             <Location location={localStorage.getItem("location")} />
             <Salary salary={localStorage.getItem("salary")} />
-            <DirectReports /> 
+            <DirectReports />
             {/* TODO ^^ */}
-        </>
-    )
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

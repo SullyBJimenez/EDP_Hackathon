@@ -1,13 +1,10 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
-import { getData } from "../getData";
 import { SearchResults } from "./SearchResults";
 
 export const Search = () => {
 
     const [query, setQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    const navigate = useNavigate();
 
     const handleSubmit = async () => {
         console.log("Clicked search");
@@ -29,6 +26,7 @@ export const Search = () => {
 
     return (
         <>
+        <div className="search_result_div">
             <div>
                 <input
                     type="search"
@@ -42,10 +40,12 @@ export const Search = () => {
                     onClick={handleSubmit}
                 >Submit</button>
             </div>
-            <div>
-                Results
+            <div >
+                Results:
                 <SearchResults searchResults={searchResults} />
             </div>
+        </div>
+            
         </>
     );
 };
