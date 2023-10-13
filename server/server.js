@@ -33,7 +33,8 @@ app.post("/loginConfirmation", async (req, res) => {
 
 app.post("/search", async (req, res) => {
     const { query } = req.body;
-    const final_query = query.split(" ")[0];
+    let final_query = query.split(" ")[0];
+    final_query = final_query.charAt(0).toUpperCase() + final_query.slice(1);
     const db = await dbConnect();
     const doc = await db.collection("Employee").findOne({ "firstName": final_query });
     if (final_query === doc?.firstName) {
@@ -61,7 +62,7 @@ app.get("/employee/:id", async (req, res) => {
     catch (error) {
         res.status(500).send(`No employee with id: ${id}`);
     }
-})
+});
 
 app.listen(port, () => {
     console.log('Listening on port: ' + port);
